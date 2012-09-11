@@ -1,3 +1,13 @@
+<?php
+
+include('core/init.inc.php');
+
+if(isset($_SESSION['email'])){
+	header('Location: protected.php');
+	die();
+}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -7,7 +17,7 @@
 		<meta name="description" content="The internet time-capsule">
 		
 		<!-- Le Styles -->
-		<link href="./css/bootstrap.css" rel="stylesheet">
+		<link href="ext/css/bootstrap.css" rel="stylesheet">
 		<style type="text/css">
 			body {
 				padding: 80px 20px 40px 20px;
@@ -24,21 +34,21 @@
 					<a class="brand" href="#">Piñata</a>
 					<ul class="nav">
 						<li><a href="#about">About</a></li>
-						<li><a href="#pinatas">My Piñatas</a></li>
+						<li><a href="#users">My Piñatas</a></li>
 						<li><a href="#upload">Upload</a></li>
 					</ul>
 					<ul class="nav pull-right">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
 							<ul class="dropdown-menu span3">
-								<li><form class="navbar-form pull-left"><input type="text" class="span2" placeholder="Email"></form></li>
 								<li>
-									<form class="navbar-form pull-left">
-										<input type="text" class="span2" placeholder="Password">
-										<button type="submit" class="btn">Submit</button>
+									<form class="navbar-form pull-left" method="post" action="login.php">
+										<input type="text" class="span2" id="email" name="email" placeholder="Email">
+										<input type="password" class="span2" id="password" name="password" placeholder="Password">
+										<button type="submit" class="btn btn-primary">Submit</button>
 									</form>
 								</li>
-								<li><a href="#signupModal" data-toggle="modal"><span class="text-info">Sign me up!</span></a></li>
+								<li><a href="register.php"><span class="text-info">Sign me up!</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -46,36 +56,22 @@
 			</div>
 		</div>
 
+		<!-- Le Welcome Message -->
 		<div class="container">
-			<!-- Le Welcome Message -->
 			<div class="hero-unit">
 				<h1>Hola, Interwebs!</h1>
 				<p>Piñata blah blah blah blah...</p>
 				<p>
 					<a class="btn btn-primary btn-large">Ok, thanks!</a>
-					<a href="#signupModal" class="btn btn-large" data-toggle="modal">Sign Up</a>
+					<a href="register.php" class="btn btn-large">Sign Up</a>
 				</p>
 			</div>
-			
-			<!-- Le Signup Modal -->
-			<div class="modal hide" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="Sign Up" aria-hidden="true">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-					<h3>Create Account</h3>
-				</div>
-				<div class="modal-body">
-					There are things written here.  Cool!
-				</div>
-				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-					<button class="btn btn-primary">Submit</button>
-				</div>
-			</div>
 			<hr>
-			<p>&copy; Purple Dwarf Studios 2012</p>
-		</container>
+			<p>&copy; Purple Dwarf Studios 2012</p>			
+		</div>
+
 		<!-- Le Javascript -->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="./js/bootstrap.js"></script>
+		<script src="ext/js/bootstrap.js"></script>
 	</body>
 </html>
