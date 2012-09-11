@@ -13,8 +13,8 @@ if (in_array($page,$exceptions) === false){
 	}
 }
 
-mysql_connect("pinata.tfhoneywell.com", "donkeys", "ProprietaryD@ta");
-mysql_select_db("pinacolada");
+mysql_connect("dick.tfhoneywell.com", "OHGOD", "NO");
+mysql_select_db("OOOOOOOOOOBOBBY");
 
 $path = dirname(__FILE__);
 
